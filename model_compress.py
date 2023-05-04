@@ -230,8 +230,7 @@ if __name__ == '__main__':
     
     # make teacher & student models
     compress_ratio = 6
-    teacher_model = TeacherCrossEncoderModel
-    teacher_model = teacher_model.from_pretrained(pretrained_path)
+    teacher_model = TeacherCrossEncoderModel.from_pretrained(pretrained_path)
     ce_model_saved = 'cross_encoder_model.pt'
     teacher_model.load_state_dict(torch.load(ce_model_saved))
     teacher_model.partition_roberta_layers(compress_ratio)
